@@ -17,14 +17,6 @@ student_year = student_year;
 %>
 
 
-<%
-/**
- * "student_year" is converted to a string and then processed
- * to get the last 2 digits of the year
- * eg : 12 instead of 2012
- */
-%>
-
 <tr data-student-id="<%= obj.student_id %>">
 	<td><%= obj.student_id %></td>
 	<td><%= obj.first_name %></td>

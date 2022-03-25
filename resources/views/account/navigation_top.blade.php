@@ -1,14 +1,19 @@
+<style>
+	.navbar{
+		
+	}
+	.navbar-inner{
+		height: 100px;
+	}
+	.container .brand{
+		margin-top: 20px;
+		font-size: 40px;
+	}
+</style>
 <div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-				<i class="icon-reorder shaded"></i>
-			
-
-			</a>
-			  <a class="brand" href="{{ URL::route('home') }}" style="color:#fff">OLMS </a> <marquee class="brand" style="color:#fff"  behavior="" direction="">WELCOME TO ONLINE LIBRARY MANAGEMENT SYSTEM</marquee>
-
-			 
+			<a class="brand" href="{{ URL::route('all-books') }}" style="color:#fff">LibIFRN </a>
 		</div>
 	</div>
 </div>

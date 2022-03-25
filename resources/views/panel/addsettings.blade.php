@@ -11,24 +11,24 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Add Settings</h3>
+            <h3>Adicionar configurações</h3>
         </div>
         <div class="row">
             <div class="module-body column">
-                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">School Branches</h2>
+                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">Filiais Escolares</h2>
                 <form class="form-horizontal row-fluid">
                    
                     <div class="control-group">
-                        <label class="control-label">Branch Name</label>
+                        <label class="control-label">Nome da Filial</label>
                         <div class="controls">
-                            <input type="text" id="branch" data-form-field="branch" placeholder="Enter branch here..." class="span12">
-                            <input type="hidden"  data-form-field="token"  value="{{ csrf_token() }}">
+                            <input type="text" id="branch" data-form-field="branch" placeholder="Digite a filial aqui..." class="span12">
+                            <input type="hidden" data-form-field="token" value="{{ csrf_token() }}">
                         </div>
                     </div>
     
                     <div class="control-group">
                         <div class="controls">
-                            <button type="button" class="btn btn-inverse" id="addBranch">Add Branch</button>
+                            <button type="button" class="btn btn-inverse" id="addBranch">Adicionar filial</button>
                         </div>
                     </div>
                 </form>
@@ -40,8 +40,8 @@
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Branch</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Ramo</th>
+                        <th scope="col">Açao</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -65,7 +65,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                <h5 class="modal-title" id="exampleModalLabel">Delete Branch</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Excluir Ramificação</h5>
                                 
                                 </div>
                                 <div class="modal-body">
@@ -76,8 +76,8 @@
                                         <input type="hidden" name="branch" id="branch" value="{{ $branch->branch }}">
                                 </div>
                                 <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-danger">Deletar</button>
                                 </form>
                                 </div>
                             </div>
@@ -90,25 +90,25 @@
 
             </div>
             <div class="module-body column">
-                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">Student Categories</h2>
+                <h2 style="text-align:center; font-family:'Times New Roman', Times, serif">Categorias de alunos</h2>
                 <form class="form-horizontal row-fluid">
                     <div class="control-group">
-                        <label class="control-label">Student Category</label>
+                        <label class="control-label">Categoria Aluno</label>
                         <div class="controls">
-                            <input type="text" id="student_category" data-form-field="student_category" placeholder="Enter the category of the book here..." class="span12">
+                            <input type="text" id="student_category" data-form-field="student_category" placeholder="Digite a categoria do livro aqui..." class="span12">
                             <input type="hidden"  data-form-field="token"  value="{{ csrf_token() }}">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Max Allow</label>
+                        <label class="control-label">Permitir máximo</label>
                         <div class="controls">
-                            <input type="number" id="max_allow" data-form-field="max_allowed" placeholder="Enter the max allow value" class="span12">
+                            <input type="number" id="max_allow" data-form-field="max_allowed" placeholder="Insira o valor máximo permitido" class="span12">
                         </div>
                     </div>
     
                     <div class="control-group">
                         <div class="controls">
-                            <button type="button" class="btn btn-inverse" id="addStudentCategory">Add Student Category</button>
+                            <button type="button" class="btn btn-inverse" id="addStudentCategory">Adicionar categoria de aluno</button>
                         </div>
                     </div>
                 </form>
@@ -117,9 +117,9 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Max Allowed</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Máximo permitido</th>
+                        <th scope="col">Açao</th>
 
                       </tr>
                     </thead>
@@ -142,7 +142,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            <h5 class="modal-title" id="exampleModalLabel">Delete Student Category</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Excluir categoria de aluno</h5>
                             
                             </div>
                             <div class="modal-body">
@@ -153,8 +153,8 @@
                                     <input type="hidden" name="category" id="category" value="{{ $student_category->category }}">
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-danger">Deletar</button>
                             </form>
                             </div>
                         </div>

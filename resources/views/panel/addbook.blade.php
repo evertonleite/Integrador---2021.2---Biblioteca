@@ -7,53 +7,42 @@
 <div class="content">
     <div class="module">
         <div class="module-head">
-            <h3>Add Books</h3>
+            <h3>Adicionar livros</h3>
         </div>
         <div class="module-body">
-            <form class="form-horizontal row-fluid">
+            <form class="form-horizontal row-fluid" action="{{ route('addbookings')}}" method="post">
+                @csrf
                 <div class="control-group">
-                    <label class="control-label">Title Of Book</label>
+                    <label class="control-label">Título do livro</label>
                     <div class="controls">
-                        <input type="text" id="title" data-form-field="title" placeholder="Enter the title of the book here..." class="span8">
-                        <input type="hidden"  data-form-field="token"  value="{{ csrf_token() }}">
-                        <input type="hidden"  data-form-field="auth_user"  value="{{ auth()->user()->id }}">
+                        <input class="span8" type="text" placeholder="Digite o título" name="titulo"> 
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label">Author Name</label>
+                    <label class="control-label">Nome do autor</label>
                     <div class="controls">
-                        <input type="text" id="author" data-form-field="author" placeholder="Enter the name of author for the book here..." class="span8">
+                    <input class="span8" type="text" placeholder="Digite o título" name="autor"> 
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="basicinput">Description of Book</label>
+                    <label class="control-label" for="basicinput">Descrição do livro</label>
                     <div class="controls">
-                        <textarea class="span8" id="description" data-form-field="description" rows="5" placeholder="Enter few lines about the book here"></textarea>
+                        <textarea class="span8" type="text" rows="5" placeholder="Digite aqui a descrição do livro..." name="descricao"></textarea>
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="basicinput">Category</label>
+                    <label class="control-label">Categoria</label>
                     <div class="controls">
-                        <select tabindex="1" id="category" data-form-field="category" data-placeholder="Select category.." class="span8">
-                            @foreach($categories_list as $category)
-                                <option value="{{ $category->id }}">{{ $category->category }}</option>
-                            @endforeach
-                        </select>
+                    <input class="span8" type="text" placeholder="Digite a categoria do livro" name="categoria" value="1"> 
                     </div>
-                </div>
+                </div> 
 
                 <div class="control-group">
-                    <label class="control-label">Number of issues</label>
                     <div class="controls">
-                        <input type="number" id="number" data-form-field="number" placeholder="How many issues are there?" class="span8">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <div class="controls">
-                        <button type="button" class="btn btn-inverse" id="addbooks">Add Books</button>
+                        <button type="submit" action="{{ route('all-books')}}" class="btn btn-inverse">Adicionar livros</button>
                     </div>
                 </div>
             </form>

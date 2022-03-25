@@ -12,21 +12,21 @@
     <link rel="image_src" href="" />
     <link rel="canonical" href="" />
 
-    <title>Online Library Management System</title>
+    <title>Sistema da biblioteca LibIFRN</title>
 
     <link type="text/css" href="{{asset('static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{asset('static/bootstrap/css/bootstrap-responsive.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{asset('static/css/theme.css') }}" rel="stylesheet">
     <link type="text/css" href="{{asset('static/images/icons/css/font-awesome.css') }}" rel="stylesheet">
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-
+    
     @include('common.script_top')
 
 </head>
 <body>
     <style>
         .module-head{
-            background-color: #9400D3;
+            background-color: #369831;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;
@@ -35,16 +35,19 @@
         .module-head h3{
             color:#fff;
         }
+        .container{
+            background-color: transparent;
+        }
 
         .widget-menu{
-            background: #9400D3 !important;
+            background: #369831 !important;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;
             font-style: bold;
         }
         .navbar-inner{
-            background: #9400D3 !important;
+            background: #369831 !important;
             color:#fff;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             text-transform: uppercase;
@@ -84,7 +87,6 @@
 
 <script type="text/template" id="alert_box">
     @include('underscore.alert_box')
-
 </script>
 
 <script>

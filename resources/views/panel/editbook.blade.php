@@ -1,0 +1,67 @@
+
+@extends('layout.index')
+@section('custom_top_script')
+@stop
+
+@section('content')
+<div class="content">
+
+<div class="">
+	<div class="container">
+		<div class="d-flex justify-content-center span4">
+			<div class="module module span4 ">
+				<form class="form-vertical" action="{{ URL::route('updatebook',['id'=>$books->id]) }}" method="POST">
+					@csrf
+                    @method('PUT')
+					<div class="module-head">
+						<h3>Editar Livro</h3>
+					</div>
+					<div class="module-body"> 
+						<div class="control-group">
+							<div class="controls row-fluid">
+								<input class="span12" type="text" placeholder="Matrícula" name="titulo" value="{{$books->titulo}}">							
+							</div>
+						</div>
+
+                        <div class="control-group">
+							<div class="controls row-fluid">
+								<input class="span12" type="text" placeholder="E-mail" name="autor" value="{{$books->autor}}"> 	
+							</div>
+						</div>
+
+						<div class="control-group">
+							<div class="controls row-fluid">
+								<input class="span12" type="text" placeholder="Nome completo" name="descricao" value="{{$books->descricao}}"> 
+                            </div>
+						</div>
+
+                        <div class="control-group">
+                            <div class="controls row-fluid">
+                                <select class="span12" name="categoria">
+									<option readonly value="1" >1</option>
+                                </select>
+                            </div>
+                        </div>
+  
+					</div>
+                    
+					<div class="module-foot">
+						<div class="control-group">
+							<div class="controls clearfix">
+								<button type="submite" class="btn btn-info pull-right">Atualizar</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+</div>
+@stop
+
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+@stop

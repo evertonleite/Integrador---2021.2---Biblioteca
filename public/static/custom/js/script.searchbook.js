@@ -12,16 +12,16 @@ function loadResults(string){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No such books found in library</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum livro foi encontrado</td></tr>');
             } else {
                 table.html('');
                 for(var books in data) {
                     book = data[books];
 
                     if(book.avaliability){
-                        book.avaliability = '<a class="btn btn-success">Available</a>';
+                        book.avaliability = '<a class="btn btn-success">Avaliado</a>';
                     } else {
-                        book.avaliability = '<a class="btn btn-danger">Not Available</a>';
+                        book.avaliability = '<a class="btn btn-danger">Não avaliado</a>';
                     }
                     
                     table.append(default_tpl(book));

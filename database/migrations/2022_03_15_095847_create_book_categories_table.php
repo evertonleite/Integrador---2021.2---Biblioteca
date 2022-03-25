@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookIssuesTable extends Migration
+class CreateBookCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateBookIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('book_issues', function (Blueprint $table) {
-            $table->bigIncrements('issue_id');
-            $table->integer('book_id');
-            $table->tinyInteger('available_status')->default(1);
-            $table->integer('added_by')->unsigned();
-
+        Schema::create('book_categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('categoria', 255);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateBookIssuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_issues');
+        Schema::dropIfExists('book_categories');
     }
 }

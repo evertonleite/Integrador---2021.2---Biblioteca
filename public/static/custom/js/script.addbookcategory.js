@@ -11,7 +11,7 @@ function loadResults(){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Books in this category</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum livro nesta categoria</td></tr>');
             } else {
                 table.html('');
                 for (var book in data) {
@@ -48,7 +48,7 @@ $(document).ready(function(){
         _token = f$('input[data-form-field~=token]').val();
 
         if(category == ""){
-            module_body.prepend(templates.alert_box( {type: 'danger', message: 'Category Field is Required'} ));
+            module_body.prepend(templates.alert_box( {type: 'danger', message: 'O campo de categoria é obrigatório'} ));
             send_flag = false;
         }
         

@@ -17,7 +17,7 @@ function loadResults(){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Students for approval for these filters</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum aluno para aprovação</td></tr>');
             } else {
                 table.html('');
                 for (var student in data) {
@@ -53,7 +53,7 @@ function StudentByBranch(){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Students for approval for these filters</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum aluno para aprovação</td></tr>');
             } else {
                 table.html('');
                 for (var student in data) {
@@ -89,7 +89,7 @@ function StudentByCategory(){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Students for approval for these filters</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum aluno para aprovação</td></tr>');
             } else {
                 table.html('');
                 for (var student in data) {
@@ -132,7 +132,7 @@ function StudentByYear(){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Students for approval for these filters</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum aluno para aprovação</td></tr>');
             } else {
                 table.html('');
                 for (var student in data) {

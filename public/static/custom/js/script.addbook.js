@@ -12,7 +12,7 @@ function loadResults(){
         success : function(data){
             console.log(data);
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Books in this category</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum livro nesta categoria</td></tr>');
             } else {
                 table.html('');
                 for (var book in data) {
@@ -45,7 +45,7 @@ $(document).ready(function(){
             success : function(data){
                 console.log(data);
                 if($.isEmptyObject(data)){
-                    table.html('<tr><td colspan="99">No Books in this category</td></tr>');
+                    table.html('<tr><td colspan="99">Nenhum livro nesta categoria</td></tr>');
                 } else {
                     table.html('');
                     for (var book in data) {
@@ -81,10 +81,10 @@ $(document).on("click","#addbooks",function(){
         _token = f$('input[data-form-field~=token]').val();
 
         if(title == "" || author == "" || description == "" || number == null){
-            module_body.prepend(templates.alert_box( {type: 'danger', message: 'Book Details Not Complete'} ));
+            module_body.prepend(templates.alert_box( {type: 'danger', message: 'Detalhes do livro não completos'} ));
             send_flag = false;
         }
-        
+
         if(send_flag == true){
 
             $.ajax({
@@ -112,7 +112,6 @@ $(document).on("click","#addbooks",function(){
             });
         }
 }); // add books to database
-
 
     loadResults();
 

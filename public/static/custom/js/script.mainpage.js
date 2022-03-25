@@ -12,16 +12,16 @@ function loadSearchedBooks(string){
         url : url,
         success : function(data){
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No such books found in library</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum livro foi encontrado</td></tr>');
             } else {
                 table.html('');
                 for(var books in data) {
                     book = data[books];
                     console.log(book.avaliability);
                     if(book.avaliability){
-                        book.avaliability = '<a class="btn btn-success">Available</a>';
+                        book.avaliability = '<a class="btn btn-success">Disponível</a>';
                     } else {
-                        book.avaliability = '<a class="btn btn-danger">Not Available</a>';
+                        book.avaliability = '<a class="btn btn-danger">Indisponível</a>';
                     }
                     
                     table.append(default_tpl(book));
@@ -41,31 +41,6 @@ function loadIssue(issueID, module_box){
     var url =  "/books/" + issueID + '/edit';
 
     var default_tpl = _.template($('#search_issue').html());
-
-    module_box.html('');
-    
-    $.ajax({
-        url : url,
-        success : function(data){
-            module_box.append(default_tpl(data));
-        },
-        error: function(xhr, status, error){
-            var err = eval("(" + xhr.responseText + ")");
-            module_box.prepend(templates.alert_box( {type: 'danger', message: err.error.message} ));
-        },
-        beforeSend : function(){
-            module_box.css({'opacity' : 0.4});
-        },
-        complete : function() {
-            module_box.css({'opacity' : 1.0});
-        }
-    });
-}
-
-function loadStudent(studentID, module_box){
-    var url =  "/student/" + studentID;
-
-    var default_tpl = _.template($('#search_student').html());
 
     module_box.html('');
     

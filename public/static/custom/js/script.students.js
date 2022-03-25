@@ -19,7 +19,7 @@ function loadResults(){
         success : function(data){
             console.log(data);
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Students for these filters</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum usuario foi encontrado</td></tr>');
             } else {
                 table.html('');
                 for (var student in data) {

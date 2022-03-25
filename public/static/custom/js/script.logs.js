@@ -10,7 +10,7 @@ function loadResults(){
         success : function(data){
             console.log(data);
             if($.isEmptyObject(data)){
-                table.html('<tr><td colspan="99">No Logs</td></tr>');
+                table.html('<tr><td colspan="99">Nenhum registro</td></tr>');
             } else {
                 table.html('');
                 // console.log(JSON.stringify(data));

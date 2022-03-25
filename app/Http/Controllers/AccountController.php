@@ -52,6 +52,8 @@ class AccountController extends Controller
 	public function postCreate(Request $request) {
 		// dd($request->all());
 		$validator = $request->validate([
+				'email' => 'required',
+				'name' => 'required',
 				'username'		=> 'required|max:20|min:3|unique:users',
 				'password'		=> 'required',
 				'password_again'=> 'required|same:password'
@@ -66,8 +68,12 @@ class AccountController extends Controller
 			// create an account
 			$username	= $request->get('username');
 			$password 	= $request->get('password');
+			$name 	= $request->get('name');
+			$email 	= $request->get('email');
 
 			$userdata = User::create([
+				'name' => $name,
+				'email' => $email,
 				'username' 	=> $username,
 				'password' 	=> Hash::make($password)	// Changed the default column for Password
 			]);
@@ -87,6 +93,7 @@ class AccountController extends Controller
 
 	/* Viewing the form (GET) */
 	public function getCreate() {
+		
 		return view('account.create');
 	}
 
@@ -96,4 +103,35 @@ class AccountController extends Controller
 		return Redirect::route('account-sign-in');
 	}
 
+	public function alluser(){
+		$this->authorize('is_admin');
+		$users = User::all();
+		return view('panel.alluser',['users'=>$users]);
+	}
+
+	public function edit($id){
+		$users=User::findOrFail($id);
+		//return $users;
+		return view('panel.edituser',compact('users'));
+	}
+
+	public function update(request $request, $id){
+
+		$users=User::findOrFail($id);
+		$users->username=$request->input('username');
+		$users->email=$request->input('email');
+		$users->password=Hash::make($request['password']);
+		$users->name=$request->input('name');
+		$users->profile=$request->input('profile');
+		$users->save();
+		return redirect()->route('alluser');
+	}
+
+	public function destroy($id){
+
+		$users = User::findOrFail($id);
+		$users->delete();
+
+		return redirect()->route('alluser');
+	}
 }

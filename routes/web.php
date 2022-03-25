@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,13 +21,6 @@ Route::group(array('before' => 'guest'), function() {
 			'as' => 'account-sign-in-post',
 			'uses' => 'AccountController@postSignIn'
 		));
-
-		// Sign in (POST) 
-		Route::post('/student-registration', array(
-			'as' => 'student-registration-post',
-			'uses' => 'StudentController@postRegistration'
-		));		
-
 	});
 
 	// Sign in (GET) 
@@ -53,12 +35,6 @@ Route::group(array('before' => 'guest'), function() {
 		'uses' 	=> 'AccountController@getCreate'
 	));
 
-	// Student Registeration form 
-	Route::get('/student-registration', array(
-		'as' 	=> 'student-registration',
-		'uses' 	=> 'StudentController@getRegistration'
-	));
-    
     // Render search books panel
     Route::get('/book', array(
         'as' => 'search-book',
@@ -75,35 +51,27 @@ Route::resource('/books', 'BooksController');
 Route::group(['middleware' => ['auth']] , function() {
 
 	// Home Page of Control Panel
-	Route::get('/home',array(
-		'as' 	=> 'home',
-		'uses'	=> 'HomeController@home'
-	));	
+	
 
 	// Render Add Books panel
     Route::get('/add-books', array(
         'as' => 'add-books',
-        'uses' => 'BooksController@renderAddBooks'
-	));
-
-	Route::get('/add-book-category', array(
-        'as' => 'add-book-category',
-        'uses' => 'BooksController@renderAddBookCategory'
+        'uses' => 'BooksController@create'
 	));
 	
-	Route::post('/bookcategory', 'BooksController@BookCategoryStore')->name('bookcategory.store');
+	// Route::post('/bookcategory', 'BooksController@BookCategoryStore')->name('bookcategory.store');
 	
 
 	// Render All Books panel
     Route::get('/all-books', array(
         'as' => 'all-books',
-        'uses' => 'BooksController@renderAllBooks'
+        'uses' => 'BooksController@showAll'
 	));
 	
-	Route::get('/bookBycategory/{cat_id}', array(
-        'as' => 'bookBycategory',
-        'uses' => 'BooksController@BookByCategory'
-    ));
+	// Route::get('/bookBycategory/{cat_id}', array(
+    //     'as' => 'bookBycategory',
+    //     'uses' => 'BooksController@BookByCategory'
+    // ));
 
 	// Students
     Route::get('/registered-students', array(
@@ -158,4 +126,107 @@ Route::group(['middleware' => ['auth']] , function() {
 		'uses' => 'AccountController@getSignOut'
     ));
 
+	//Route::get('/alluser','AccountController@alluser')->name('logUserIndex');
+	
+	Route::get('/alluser', array(
+        'as' => 'alluser',
+        'uses' => 'AccountController@alluser'
+	));
+
+	// Route::get('/edit', array(
+    //     'as' => 'edit',
+    //     'uses' => 'AccountController@edit'
+	// ));
+
+	Route::get('/edit{id}','AccountController@edit')->name('edit');
+	Route::put('/update{id}','AccountController@update')->name('update');
+	Route::delete('/destroy{id}','AccountController@destroy')->name('destroy');
+
+	//routes book
+	Route::post('/addbookings', array(
+		'as' => 'addbookings',
+        'uses' => 'BooksController@store'
+	));
+
+	//routes category book
+	Route::get('/book-category', array(
+        'as' => 'book-category',
+        'uses' => 'CategoriesBooks@create'
+	));
+	
+	Route::POST('/add-book-category', array(
+        'as' => 'add-book-category',
+        'uses' => 'CategoriesBooks@store'
+	));
+
+	Route::get('/allbook', array(
+        'as' => 'allbook',
+        'uses' => 'BooksController@allbook'
+    ));
+
+	Route::get('/editbook/{id}', array(
+		'as' => 'editbook',
+		'uses' => 'BooksController@editbook'
+	));
+
+	Route::get('/allemprestimo', array(
+        'as' => 'allemprestimo',
+        'uses' => 'EmprestimoController@allemprestimo'
+    ));
+	Route::get('/meusemprestimos', array(
+        'as' => 'meusemprestimos',
+        'uses' => 'EmprestimoController@meusemprestimos'
+    ));
+
+	Route::get('/emprestimo-aprove{id}', array(
+        'as' => 'aprovaremprestimo',
+        'uses' => 'EmprestimoController@aprove'
+    ));
+
+	Route::get('/emprestimo-reprove{id}', array(
+        'as' => 'reprovaremprestimo',
+        'uses' => 'EmprestimoController@reject'
+    ));
+
+	Route::get('/renovacaolist', array(
+        'as' => 'renovacaolist',
+        'uses' => 'EmprestimoController@renovacaolist'
+    ));
+
+	Route::get('/devolucaolist', array(
+        'as' => 'devolucaolist',
+        'uses' => 'EmprestimoController@devolucaolist'
+    ));
+
+	Route::get('/emprestimo-reprove{id}', array(
+        'as' => 'reprovaremprestimo',
+        'uses' => 'EmprestimoController@reject'
+    ));
+	
+	Route::put('/update-book/{id}', 'BooksController@update')->name('updatebook');
+	Route::delete('/delete_book/{id}','BooksController@delete_book')->name('delete_book');
+
+
+	Route::POST('/emprestimo/{id}', 'EmprestimoController@store')->name('emprestimo-new');
+
+    Route::get('/renovacao-book/{id}', 'EmprestimoController@solicitarRenovacao')->name('renovacao-book');
+    Route::get('/solicitacos-renovacao-book/{id}', 'EmprestimoController@renovar')->name('solicitacao-renovacao-book');
+
+    Route::get('/devolver-book/{id}', 'EmprestimoController@solicitarDevolucao')->name('devolver-book');
+    
+
+    Route::get('/renovacao-reprove{id}', array(
+        'as' => 'reprovarrenovacao',
+        'uses' => 'EmprestimoController@reject'
+    ));
+
+    Route::get('/aprovardevolucao{id}', array(
+        'as' => 'aprovardevolucao',
+        'uses' => 'EmprestimoController@aprovardevolucao'
+    ));
+
+    Route::get('/home', array(
+        'as' => 'home',
+        'uses' => 'BooksController@index'
+    ));
 });
