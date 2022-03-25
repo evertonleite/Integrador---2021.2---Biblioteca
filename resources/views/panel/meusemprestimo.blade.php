@@ -36,7 +36,7 @@
                         
                         <td>{{ $emprestimos->id }}</td>
                         <td>{{ $emprestimos->book_id }}</td>
-                        <td>TESTANDO</td>
+                        <td>{{ $emprestimos->titulo }}</td>
                         <td>{{ Auth::user()->name}}</td>
                         <td>{{ $emprestimos->user_id }}</td>
                         <td>{{ $emprestimos->status }}</td>
@@ -45,6 +45,8 @@
                         <td>
                             @if($emprestimos->status == 'aprovado')
                             <a href="{{ route('renovacao-book', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Renovar</i></a>
+                            <a href="{{ route('devolver-book', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Devolver</i></a>
+                            @elseif($emprestimos->status == 'rejeitado')
                             <a href="{{ route('devolver-book', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Devolver</i></a>
                             @endif
                         </td>

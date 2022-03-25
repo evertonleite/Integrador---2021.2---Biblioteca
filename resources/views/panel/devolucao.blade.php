@@ -33,8 +33,8 @@
                         
                         <td>{{ $emprestimos->id }}</td>
                         <td>{{ $emprestimos->book_id }}</td>
-                        <td>a</td>
-                        <td>a</td>
+                        <td>{{ $emprestimos->titulo }}</td>
+                        <td>{{ $emprestimos->user->name }}</td>
                         <td>{{ $emprestimos->user_id }}</td>
                         <td>{{ $emprestimos->data_emprestimo }}</td>
                         <td>{{ $emprestimos->data_devolucao }}</td>

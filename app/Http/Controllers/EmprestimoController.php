@@ -23,6 +23,7 @@ class EmprestimoController extends Controller
             $emprestimo->book_id = $book->id;
             $emprestimo->data_emprestimo = Carbon::now();
             $emprestimo->data_devolucao = Carbon::now()->addDays(7);
+            $emprestimo->titulo = $book->titulo;
 
             $book->status_book = 'indisponivel';
             $book-> save();
@@ -72,8 +73,15 @@ class EmprestimoController extends Controller
             $id_book = $emprestimo->book_id;
             $books = Books::find($id_book);
 
-            $emprestimo->status ="rejeitado";
-            $books->status_book = "disponivel";
+            
+            if($emprestimo->status == 'aguardando' ){
+                $emprestimo->status = 'rejeitado';
+                $books->status_book = 'disponivel';
+            }else if($emprestimo->status == 'renovando'){
+                $emprestimo->status = 'rejeitado';
+                $books->status_book = 'indisponivel';
+            }
+            
             $books->save();
             $emprestimo->save();
 

@@ -19,6 +19,7 @@ class CreateEmprestimoTable extends Migration
             $table->unsignedBigInteger('book_id');
             $table->foreign('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
             $table->foreign('book_id')->references('id')->on('books')->constrained()->onDelete('cascade');
+            $table->text('titulo');
             $table->date('data_emprestimo');
             $table->date('data_devolucao');
             $table->enum('status',['aprovado','aguardando','rejeitado', 'renovando', 'devolvendo', 'finalizado' ])->default('aguardando');

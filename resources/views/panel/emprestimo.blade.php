@@ -30,7 +30,7 @@
                         @if( $emprestimos->status =='aguardando')
                         <td>{{ $emprestimos->id }}</td>
                         <td>{{ $emprestimos->book_id }}</td>
-                        <td></td>
+                        <td>{{ $emprestimos->titulo }}</td>
                         <td>{{ $emprestimos->user->name }}</td>
                         <td>{{ $emprestimos->user_id }}</td>
                         <td>
