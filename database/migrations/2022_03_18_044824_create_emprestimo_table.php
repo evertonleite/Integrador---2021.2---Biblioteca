@@ -22,7 +22,7 @@ class CreateEmprestimoTable extends Migration
             $table->text('titulo');
             $table->date('data_emprestimo');
             $table->date('data_devolucao');
-            $table->enum('status',['aprovado','aguardando','rejeitado', 'renovando', 'devolvendo', 'finalizado' ])->default('aguardando');
+            $table->enum('status',['aprovado','aguardando','negado','rejeitado', 'renovando', 'devolvendo', 'finalizado' ])->default('aguardando');
             
             $table->timestamps();
             

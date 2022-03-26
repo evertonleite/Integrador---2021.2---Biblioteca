@@ -36,7 +36,14 @@
                 <div class="control-group">
                     <label class="control-label">Categoria</label>
                     <div class="controls">
-                    <input class="span8" type="text" placeholder="Digite a categoria do livro" name="categoria" value="1"> 
+                        
+                    <select class="span8" name="categoria">
+                        @foreach($bookCategories as $books)            
+                        <option value="{{$books->id}}">{{$books->categoria}}</option>
+                        @endforeach
+                    </select>
+
+                    <!-- <input class="span8" type="text" placeholder="Digite a categoria do livro" name="categoria" value="1">  -->
                     </div>
                 </div> 
 

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class BookCategories extends Model
 {
@@ -13,5 +15,9 @@ class BookCategories extends Model
 
     protected $table = 'book_categories';
     protected $primaryKey = 'id';
+
+    public function books(){
+		return $this->hasMany('App\Models\Books');
+	}
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Books;
+use App\Models\BookCategories;
 
 class BooksController extends Controller
 {
@@ -13,12 +14,15 @@ class BooksController extends Controller
 
     public function create(){
         $this->authorize('is_admin');
-        return view('panel.addbook');
+        $bookCategories=BookCategories::all();
+        return view('panel.addbook',['bookCategories'=>$bookCategories]);
+
     }
 
     public function store(Request $request){
         $this->authorize('is_admin');
         $book = new Books;
+
         $book->titulo = $request->titulo;
         $book->autor = $request->autor;
         $book->descricao = $request->descricao;
@@ -38,6 +42,8 @@ class BooksController extends Controller
     public function showAll(){
         $this->authorize('is_admin');
         $books = Books::all();
+        $bookCategories=BookCategories::all();
+        return view('panel.allbook',['bookCategories'=>$bookCategories,'books' => $books]);
         //return view('books.showAll',['books' => $books]);
     }
 
@@ -74,7 +80,8 @@ class BooksController extends Controller
 
     public function allbook(){
         $books = Books::all();
-        return view('panel.allbook',['books'=>$books]);
+        $categoria = BookCategories::all();
+        return view('panel.allbook',['books' => $books,'categoria'=>$categoria]);
     }
 
     public function delete_book($id){

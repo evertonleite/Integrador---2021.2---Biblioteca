@@ -39,7 +39,7 @@
                         <td>{{ $emprestimos->data_emprestimo }}</td>
                         <td>{{ $emprestimos->data_devolucao }}</td>
                         <td>
-                            <a href="{{ route('aprovardevolucao', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Confirmar</i></a>
+                            <a href="{{ route('aprovardevolucao', ['id'=> $emprestimos->id]) }}" class="btn btn-success btn-sm"><i class="bi bi-eye">Confirmar</i></a>
                         </td>
                         
                         @endif

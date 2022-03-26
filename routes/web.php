@@ -178,6 +178,12 @@ Route::group(['middleware' => ['auth']] , function() {
         'uses' => 'EmprestimoController@meusemprestimos'
     ));
 
+    Route::get('/todosemprestimos', array(
+        'as' => 'todosemprestimos',
+        'uses' => 'EmprestimoController@todosemprestimos'
+    ));
+    
+
 	Route::get('/emprestimo-aprove{id}', array(
         'as' => 'aprovaremprestimo',
         'uses' => 'EmprestimoController@aprove'

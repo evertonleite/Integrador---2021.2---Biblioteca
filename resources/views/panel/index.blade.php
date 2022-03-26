@@ -8,6 +8,9 @@
     .icon-user:before{         
         color: #369831;     
     }
+    .control-label{
+        margin-bottom: 20px;
+    }
 </style>
 
 <div class="content">

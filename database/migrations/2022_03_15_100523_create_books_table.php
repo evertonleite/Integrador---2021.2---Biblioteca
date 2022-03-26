@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('titulo', 1000);
             $table->string('autor', 1000);
             $table->text('descricao');
+            $table->unsignedBigInteger('categoria');
             $table->foreign('categoria')->references('id')->on('book_categories')->constrained()->onDelete('cascade');
             $table->enum('status_book',['disponivel', 'indisponivel'])->default('disponivel');
 

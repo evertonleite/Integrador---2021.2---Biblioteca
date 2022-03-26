@@ -19,19 +19,22 @@
 					<div class="module-body"> 
 						<div class="control-group">
 							<div class="controls row-fluid">
-								<input class="span12" type="text" placeholder="Matrícula" name="titulo" value="{{$books->titulo}}">							
+								<input class="span12" type="text" placeholder="titulo" name="titulo" value="{{$books->titulo}}">							
+								@if($errors->has('login'))
+									{{ $errors->first('login')}}
+								@endif		
 							</div>
 						</div>
 
                         <div class="control-group">
 							<div class="controls row-fluid">
-								<input class="span12" type="text" placeholder="E-mail" name="autor" value="{{$books->autor}}"> 	
+								<input class="span12" type="text" placeholder="autor" name="autor" value="{{$books->autor}}"> 	
 							</div>
 						</div>
 
 						<div class="control-group">
 							<div class="controls row-fluid">
-								<input class="span12" type="text" placeholder="Nome completo" name="descricao" value="{{$books->descricao}}"> 
+								<input class="span12" type="text" placeholder="descrição" name="descricao" value="{{$books->descricao}}"> 
                             </div>
 						</div>
 

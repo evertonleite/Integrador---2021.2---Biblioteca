@@ -75,7 +75,7 @@ class EmprestimoController extends Controller
 
             
             if($emprestimo->status == 'aguardando' ){
-                $emprestimo->status = 'rejeitado';
+                $emprestimo->status = 'negado';
                 $books->status_book = 'disponivel';
             }else if($emprestimo->status == 'renovando'){
                 $emprestimo->status = 'rejeitado';
@@ -109,6 +109,11 @@ class EmprestimoController extends Controller
         public function meusemprestimos(){
             $emprestimo = Emprestimo::orderBy('created_at', 'desc')->get();
             return view('panel.meusemprestimo',['emprestimo'=>$emprestimo]);
+        }
+
+        public function todosemprestimos(){
+            $emprestimo = Emprestimo::orderBy('created_at', 'desc')->get();
+            return view('panel.allemprestimos',['emprestimo'=>$emprestimo]);
         }
 
         public function renovacaolist(){

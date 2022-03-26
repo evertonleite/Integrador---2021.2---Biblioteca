@@ -100,10 +100,10 @@
                     <div class="footer-div">
                         <h4>Biblioteca</h4>
                         <ul class="ulfooter">
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Biblioteca</a></li>
-                            <li><a href="#">Sobre</a></li>
-                            <li><a href="#">Redes sociais</a></li>
+                            <li><a href="home">Inicio</a></li>
+                            <li><a href="allbook">Biblioteca</a></li>
+                            <li><a href="home">Sobre</a></li>
+                            <li><a href="https://www.facebook.com/ifrnoficial/">Redes sociais</a></li>
                         </ul>
                     </div>
                     <div class="footer-div">

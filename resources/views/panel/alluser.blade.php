@@ -3,6 +3,14 @@
 @stop
 
 @section('content')
+<style>
+    .buttonstd{
+        width: 130px;
+    }
+    .testandoform {
+        display: inline-block;
+    }
+</style>
 <div class="content">
     <div class="module">
         <div class="module-head">
@@ -62,9 +70,9 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->profile }}</td>
                             
-                            <td>
+                            <td class="buttonstd">
                                 <a href="{{ route('edit', ['id'=>$user->id]) }}" class="btn btn-info btn-sm"><i class="bi bi-eye">Editar</i></a>
-                                <form action="{{ route('destroy', ['id'=>$user->id]) }}" method="POST">
+                                <form class="testandoform" action="{{ route('destroy', ['id'=>$user->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type='submit' class="btn btn-danger btn-sm" value="Excluir">

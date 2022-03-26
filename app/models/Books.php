@@ -22,5 +22,9 @@ class Books extends Model  {
 		return $this->hasMany('App\Models\Emprestimo');
 	}
 
+	public function bookscategories(){
+        return $this-> belongsTo('App\Models\BookCategories');
+    }
+
 }
 

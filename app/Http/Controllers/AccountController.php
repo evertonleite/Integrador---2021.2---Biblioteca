@@ -41,7 +41,7 @@ class AccountController extends Controller
 		} else {
 			
 			return Redirect::route('account-sign-in')
-				->with('global', 'Wrong Email or Wrong Password.');
+				->with('global', 'Senha ou email incorretos.');
 		}
 
 		return Redirect::route('account-sign-in')
@@ -81,8 +81,7 @@ class AccountController extends Controller
 			if($userdata) {			
 
 
-				return Redirect::route('account-sign-in')
-					->with('global', 'Your account has been created. We have sent you an email to activate your account');				
+				return Redirect::route('account-sign-in');//->with('global', 'Your account has been created. We have sent you an email to activate your account');				
 			}
 		}
 	}

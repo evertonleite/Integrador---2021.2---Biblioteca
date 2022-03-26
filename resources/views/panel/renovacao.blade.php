@@ -4,6 +4,11 @@
 @stop
 
 @section('content')
+<style>
+    .buttonstd{
+        width: 150px;
+    }
+</style>
 <div class="content">
     <div class="module">
         <div class="module-head">
@@ -38,9 +43,9 @@
                         <td>{{ $emprestimos->user_id }}</td>
                         <td>{{ $emprestimos->data_emprestimo }}</td>
                         <td>{{ $emprestimos->data_devolucao }}</td>
-                        <td>
-                            <a href="{{ route('solicitacao-renovacao-book', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Confirmar</i></a>
-                            <a href="{{ route('reprovarrenovacao', ['id'=> $emprestimos->id]) }}" class="btn-info btn-sm"><i class="bi bi-eye">Rejeitar</i></a>
+                        <td class="buttonstd">
+                            <a href="{{ route('solicitacao-renovacao-book', ['id'=> $emprestimos->id]) }}" class="btn btn-success btn-sm"><i class="bi bi-eye">Confirmar</i></a>
+                            <a href="{{ route('reprovarrenovacao', ['id'=> $emprestimos->id]) }}" class="btn btn-danger btn-sm"><i class="bi bi-eye">Rejeitar</i></a>
                         </td>
                         
                         @endif
